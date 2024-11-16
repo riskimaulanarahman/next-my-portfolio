@@ -1,5 +1,6 @@
 import './globals.css'; // Impor file CSS global
 import { ReactNode } from 'react';
+import Link from 'next/link';
 
 export const metadata = {
 	title: 'My Portfolio',
@@ -12,8 +13,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
 			<body>
 				<header>
 					<nav>
-						<a href="/">Home</a> | <a href="/about">About</a> |{' '}
-						<a href="/projects">Projects</a> | <a href="/contact">Contact</a>
+						<Link href="/">Home</Link> | <Link href="/about">About</Link> |{' '}
+						<Link href="/projects">Projects</Link> |{' '}
+						<Link href="/contact">Contact</Link>
 					</nav>
 				</header>
 				{children}
