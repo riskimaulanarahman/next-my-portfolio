@@ -10,7 +10,6 @@ import {
 	FaGithub,
 	FaDocker,
 	FaJenkins,
-	FaInfoCircle,
 } from 'react-icons/fa';
 import {
 	SiNextdotjs,
@@ -50,15 +49,6 @@ interface Project {
 }
 
 export default function Home() {
-	const [isModalOpen, setIsModalOpen] = useState(false);
-	const [modalContent, setModalContent] = useState('');
-	const [showMore, setShowMore] = useState(false);
-	const [isReadMore, setIsReadMore] = useState(false);
-
-	const handleShowMore = () => {
-		setShowMore(!showMore);
-	};
-
 	const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
 		const [isReadMore, setIsReadMore] = useState(false);
 
@@ -426,128 +416,6 @@ export default function Home() {
 			</section>
 
 			{/* Projects Section */}
-			{/* <section id="projects" className="py-20 bg-white text-center">
-				<h2 className="text-3xl font-bold">My Projects</h2>
-				<div className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-					<div className="p-6 bg-gray-100 shadow-lg rounded-lg hover:shadow-2xl hover:scale-105 transition duration-300 ease-in-out">
-						<img
-							src="https://camo.githubusercontent.com/f02aa54f2cca43a2365b08f6eddea495db4bc642d15509df7fe5cac2d178a5a3/68747470733a2f2f70696e6461792e746f702f696d6167652f6564617461626173652e6a7067"
-							alt="e-Database"
-							className="w-full h-50 object-cover rounded-md"
-						/>
-						<h3 className="text-xl font-semibold mt-4">e-Database</h3>
-						<p className="mt-4 text-gray-600">
-							{isReadMore
-								? 'The eDatabase application system is designed to support the documentation of development planning results, including numerical and spatial data. Its goal is to provide accurate, up-to-date, and accountable regional development data to improve planning, control, and evaluation processes. The application focuses on creating measurable and environmentally friendly development plans. It consists of three main components: Building Data, Household Data, and Member Data (Occupants). This system aims to contribute to the continued development of Balikpapan city.'
-								: 'The eDatabase application system is designed to support the documentation of development planning results, including numerical and spatial data...'}
-						</p>
-						<button
-							onClick={toggleReadMore}
-							className="mt-2 text-blue-500 hover:underline"
-						>
-							{isReadMore ? 'Read Less' : 'Read More'}
-						</button>
-					</div>
-
-					<div className="p-6 bg-gray-100 shadow-lg rounded-lg hover:shadow-2xl hover:scale-105 transition duration-300 ease-in-out">
-						<img
-							src="https://camo.githubusercontent.com/8acf9205de35abdfc0d12c839a89e2eacb617fcc4972fe25b4889c3246518402/68747470733a2f2f70696e6461792e746f702f696d6167652f706d6275692e6a7067"
-							alt="Penerimaan Mahasiswa Baru (PMB) : Universitas Indonesia"
-							className="w-full h-50 object-cover rounded-md"
-						/>
-						<h3 className="text-xl font-semibold mt-4">
-							Penerimaan Mahasiswa Baru (PMB) : Universitas Indonesia
-						</h3>
-						<p className="mt-4 text-gray-600">
-							{isReadMore
-								? 'The New Student Admission at the University of Indonesia (UI) involves the process of registration and submission of documents by prospective students. Prospective students are required to register through the university`s online registration system. After registration is completed, prospective students are required to submit the required documents, such as diplomas, transcripts, and other documents as specified by UI. The entire registration and document submission process is aimed at ensuring that prospective students meet the requirements set by the university to participate in further selection processes.'
-								: 'he New Student Admission at the University of Indonesia (UI) involves the process of registration and submission of documents by prospective students...'}
-						</p>
-						<button
-							onClick={toggleReadMore}
-							className="mt-2 text-blue-500 hover:underline"
-						>
-							{isReadMore ? 'Read Less' : 'Read More'}
-						</button>
-					</div>
-
-					<div className="p-6 bg-gray-100 shadow-lg rounded-lg hover:shadow-2xl hover:scale-105 transition duration-300 ease-in-out">
-						<img
-							src="https://camo.githubusercontent.com/b4b090862e39cde9594ff9f45ddc0edce6a520c27a906bdcb254a3648a65dd7e/68747470733a2f2f70696e6461792e746f702f696d6167652f696b6b616d2e6a7067"
-							alt="IKKAM Polresta Balikpapan"
-							className="w-full h-50 object-cover rounded-md"
-						/>
-						<h3 className="text-xl font-semibold mt-4">
-							IKKAM Polresta Balikpapan
-						</h3>
-						<p className="mt-4 text-gray-600">
-							{isReadMore
-								? 'IKKAM POLRESTA BALIKPAPAN, an abbreviation of Internal Command and Schedule, is a scheduling application designed to meet the special needs of POLRESTA BALIKPAPAN. With a primary focus on optimizing internal processes, the app aims to improve coordination, communication and overall efficiency within the police department.'
-								: 'IKKAM POLRESTA BALIKPAPAN, an abbreviation of Internal Command and Schedule, is a scheduling application designed to meet the special needs of POLRESTA BALIKPAPAN...'}
-						</p>
-						<button
-							onClick={toggleReadMore}
-							className="mt-2 text-blue-500 hover:underline"
-						>
-							{isReadMore ? 'Read Less' : 'Read More'}
-						</button>
-					</div>
-
-					{showMore && (
-						<>
-							<div className="p-6 bg-gray-100 shadow-lg rounded-lg hover:shadow-2xl hover:scale-105 transition duration-300 ease-in-out">
-								<img
-									src="https://camo.githubusercontent.com/f02aa54f2cca43a2365b08f6eddea495db4bc642d15509df7fe5cac2d178a5a3/68747470733a2f2f70696e6461792e746f702f696d6167652f6564617461626173652e6a7067"
-									alt="KHDTK Samboja Portal"
-									className="w-full h-50 object-cover rounded-md"
-								/>
-								<h3 className="text-xl font-semibold mt-4">e-Database</h3>
-								<p className="mt-4 text-gray-600">
-									{isReadMore
-										? 'The eDatabase application system is designed to support the documentation of development planning results, including numerical and spatial data. Its goal is to provide accurate, up-to-date, and accountable regional development data to improve planning, control, and evaluation processes. The application focuses on creating measurable and environmentally friendly development plans. It consists of three main components: Building Data, Household Data, and Member Data (Occupants). This system aims to contribute to the continued development of Balikpapan city.'
-										: 'The eDatabase application system is designed to support the documentation of development planning results, including numerical and spatial data...'}
-								</p>
-								<button
-									onClick={toggleReadMore}
-									className="mt-2 text-blue-500 hover:underline"
-								>
-									{isReadMore ? 'Read Less' : 'Read More'}
-								</button>
-							</div>
-
-							<div className="p-6 bg-gray-100 shadow-lg rounded-lg hover:shadow-2xl hover:scale-105 transition duration-300 ease-in-out">
-								<img
-									src="https://camo.githubusercontent.com/f02aa54f2cca43a2365b08f6eddea495db4bc642d15509df7fe5cac2d178a5a3/68747470733a2f2f70696e6461792e746f702f696d6167652f6564617461626173652e6a7067"
-									alt="KHDTK Samboja Portal"
-									className="w-full h-50 object-cover rounded-md"
-								/>
-								<h3 className="text-xl font-semibold mt-4">e-Database</h3>
-								<p className="mt-4 text-gray-600">
-									{isReadMore
-										? 'The eDatabase application system is designed to support the documentation of development planning results, including numerical and spatial data. Its goal is to provide accurate, up-to-date, and accountable regional development data to improve planning, control, and evaluation processes. The application focuses on creating measurable and environmentally friendly development plans. It consists of three main components: Building Data, Household Data, and Member Data (Occupants). This system aims to contribute to the continued development of Balikpapan city.'
-										: 'The eDatabase application system is designed to support the documentation of development planning results, including numerical and spatial data...'}
-								</p>
-								<button
-									onClick={toggleReadMore}
-									className="mt-2 text-blue-500 hover:underline"
-								>
-									{isReadMore ? 'Read Less' : 'Read More'}
-								</button>
-							</div>
-						</>
-					)}
-				</div>
-
-				<div className="mt-8">
-					<button
-						onClick={handleShowMore}
-						className="bg-blue-500 text-white px-6 py-3 rounded-md hover:bg-blue-600"
-					>
-						{showMore ? 'Show Less' : 'Show More'}
-					</button>
-				</div>
-
-			</section> */}
 			<section id="projects" className="py-20 bg-white text-center">
 				<h2 className="text-3xl font-bold">My Projects</h2>
 				<div className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">

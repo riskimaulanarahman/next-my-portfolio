@@ -1,7 +1,6 @@
 import './globals.css'; // Impor file CSS global
 import Navbar from './components/navbar';
 import { ReactNode } from 'react';
-import Link from 'next/link';
 
 export const metadata = {
 	title: 'My Portfolio',
@@ -13,13 +12,6 @@ export default function RootLayout({ children }: { children: ReactNode }) {
 		<html lang="en">
 			<body>
 				<Navbar />
-				{/* <header>
-					<nav>
-						<Link href="/">Home</Link> | <Link href="/about">About</Link> |{' '}
-						<Link href="/projects">Projects</Link> |{' '}
-						<Link href="/contact">Contact</Link>
-					</nav>
-				</header> */}
 				{children}
 			</body>
 		</html>
